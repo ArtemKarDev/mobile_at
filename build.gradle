@@ -12,6 +12,7 @@ compileTestJava {
     options.encoding = 'UTF-8'
 }
 
+
 def allureVersion = "2.21.0"
 def selenideVersion = "6.13.0"
 def restAssuredVersion = "5.3.0"
@@ -50,6 +51,11 @@ dependencies {
     )
 }
 
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 tasks.withType(Test) {
     systemProperties(System.getProperties())
 
@@ -66,5 +72,11 @@ tasks.withType(Test) {
 tasks.register('mobile_test', Test) {
     useJUnitPlatform {
         includeTags("SearchTests")
+    }
+}
+
+task android(type: Test) {
+    useJUnitPlatform {
+        includeTags 'android'
     }
 }
