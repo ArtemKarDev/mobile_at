@@ -1,6 +1,7 @@
 package tests;
 
 import io.qameta.allure.Description;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import screens.ArticleScreen;
 import screens.SearchScreen;
@@ -11,7 +12,8 @@ public class SearchTests extends TestBase {
     ArticleScreen articleScreen;
 
     @Test
-    void successfulSearchTest2(){
+    @Tag("SearchTests")
+    void successfulSearchTest(){
         String searchTerm = "Appium";
         searchScreen = new SearchScreen();
         searchScreen.openSearch()
@@ -21,7 +23,7 @@ public class SearchTests extends TestBase {
     }
 
     @Test
-    //@Tag("SearchTests")
+    @Tag("SearchTests")
     @Description("Проверка поисковой строки и вывода релевантного значения в поиске")
     void successfulOpenArticleTest(){
         String searchTerm = "Appium";
