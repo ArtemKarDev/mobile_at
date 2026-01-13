@@ -25,15 +25,14 @@ public class TestBase {
     }
 
     @BeforeEach
-    void beforeEach() {
+    void addListenerAndOpen() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         open();
     }
 
     @AfterEach
-    void afterEach() {
+    void addAttachments() {
         String sessionId = Selenide.sessionId().toString();
-//        Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
 
         closeWebDriver();

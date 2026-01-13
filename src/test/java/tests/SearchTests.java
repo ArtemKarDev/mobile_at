@@ -1,28 +1,38 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.Test;
-
-import java.net.MalformedURLException;
-
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static io.appium.java_client.AppiumBy.*;
-import static io.qameta.allure.Allure.step;
+import screens.ArticleScreen;
+import screens.SearchScreen;
 
 public class SearchTests extends TestBase {
 
+    SearchScreen searchScreen;
+    ArticleScreen articleScreen;
+
     @Test
-    void successfulSearchTest(){
-
-        step("Open Search", () -> {
-            $(accessibilityId("Search Wikipedia")).click();
-            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Appium");
-        });
-        step("Verify that results are displayed", () -> {
-            $$(id("org.wikipedia.alpha:id/page_list_item_title"))
-                    .shouldHave(sizeGreaterThan(0));
-        });
-
+    void successfulSearchTest2(){
+        String searchTerm = "Appium";
+        searchScreen = new SearchScreen();
+        searchScreen.openSearch()
+                .typeSearch(searchTerm)
+                .verifyResultsArePresent()
+                .verifyTitleIs(searchTerm);
     }
+
+    @Test
+    //@Tag("SearchTests")
+    @Description("Проверка поисковой строки и вывода релевантного значения в поиске")
+    void successfulOpenArticleTest(){
+        String searchTerm = "Appium";
+        searchScreen = new SearchScreen();
+        articleScreen = searchScreen.openSearch()
+                .typeSearch(searchTerm)
+                .verifyResultsArePresent()
+                .clickFirstResult();
+
+        //articleScreen.verifyArticleTitleContains(searchTerm);
+        articleScreen.verifyErrorOpenedArticle();
+    }
+
 }
