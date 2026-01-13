@@ -2,7 +2,9 @@ package config;
 
 import org.aeonbits.owner.Config;
 
+@Config.LoadPolicy(Config.LoadType.FIRST)
 @Config.Sources({
+        "classpath:${platform}.properties",
         "classpath:android.properties"
 })
 public interface TestConfig extends Config {
