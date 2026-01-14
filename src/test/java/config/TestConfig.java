@@ -4,10 +4,14 @@ import org.aeonbits.owner.Config;
 
 @Config.LoadPolicy(Config.LoadType.FIRST)
 @Config.Sources({
-        "classpath:${platform}.properties",
-        "classpath:android.properties"
+        "classpath:config/${platform}.properties",
+        "classpath:config/android.properties"
 })
 public interface TestConfig extends Config {
+
+        @Key("platformName")
+        String platformName();
+
         @Key("browserstack.user")
         String browserstackUser();
 
@@ -17,16 +21,26 @@ public interface TestConfig extends Config {
         @Key("app")
         String app();
 
+        @Key("appActivity")
+        String appActivity();
+
+        @Key("appPackage")
+        String appPackage();
+
         @Key("appium.automationName")
         String appiumAutomationName();
+
+
+        @Key("appiumUrl")
+        String appiumUrl();
 
         @Key("deviceName")
         @DefaultValue("Samsung Galaxy S22 Ultra")
         String deviceName();
 
-        @Key("osVersion")
+        @Key("platformVersion")
         @DefaultValue("12.0")
-        String osVersion();
+        String platformVersion();
 
         @Key("project")
         String project();
