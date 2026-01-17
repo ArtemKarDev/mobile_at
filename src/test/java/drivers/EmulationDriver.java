@@ -5,6 +5,7 @@ import config.ConfigReader;
 import config.TestConfig;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 
@@ -15,10 +16,11 @@ import java.net.URL;
 
 public class EmulationDriver implements WebDriverProvider {
 
+    private final TestConfig config = ConfigReader.INSTANCE.getConfig();
+
     @Nonnull
     @Override
     public WebDriver createDriver(@Nonnull Capabilities capabilities) {
-        TestConfig config = ConfigReader.INSTANCE.getConfig();
 
         UiAutomator2Options options = new UiAutomator2Options()
                 .setPlatformName(config.platformName())

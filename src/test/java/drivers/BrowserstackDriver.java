@@ -37,7 +37,6 @@ public class BrowserstackDriver implements WebDriverProvider {
 
         caps.setCapability("app", config.app());
 
-
         caps.setCapability("device", config.deviceName());
         caps.setCapability("osVersion", config.platformVersion());
         caps.setCapability("appium:automationName", config.appiumAutomationName());

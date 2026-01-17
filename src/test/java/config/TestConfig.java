@@ -4,7 +4,7 @@ import org.aeonbits.owner.Config;
 
 @Config.LoadPolicy(Config.LoadType.FIRST)
 @Config.Sources({
-        "classpath:config/${platform}.properties",
+        "classpath:config/${deviceHost}.properties",
         "classpath:config/android.properties"
 })
 public interface TestConfig extends Config {
@@ -29,7 +29,6 @@ public interface TestConfig extends Config {
 
         @Key("appium.automationName")
         String appiumAutomationName();
-
 
         @Key("appiumUrl")
         String appiumUrl();

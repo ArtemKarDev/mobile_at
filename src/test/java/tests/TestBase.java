@@ -3,7 +3,8 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import drivers.BrowserstackDriver;
+import drivers.DriverProvider;
+import com.codeborne.selenide.WebDriverProvider;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -17,10 +18,13 @@ import static com.codeborne.selenide.Selenide.open;
 public class TestBase {
 
     @BeforeAll
-    static  void beforeAll() {
-        Configuration.browser = BrowserstackDriver.class.getName();
+    static  void setupDriver() {
+        Configuration.browser = DriverProvider.getDriver().getClass().getName();
         Configuration.browserSize = null;
-        //Configuration.timeout = 30000;
+//        Configuration.timeout = 30000;
+//
+//        Configuration.remoteConnectionTimeout = 10000;
+//        Configuration.remoteReadTimeout = 60000;
 
     }
 

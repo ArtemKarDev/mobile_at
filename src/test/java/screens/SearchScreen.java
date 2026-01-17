@@ -3,6 +3,7 @@ package screens;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import components.NavTab;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -12,6 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchScreen {
 
+    NavTab navTab = new NavTab();
     private final SelenideElement
             searchBanner = $(accessibilityId("Search Wikipedia")),
             searchInput = $(id("org.wikipedia.alpha:id/search_src_text")),
@@ -53,4 +55,11 @@ public class SearchScreen {
                 .shouldHave(Condition.exactText(expectedTitle));
         return this;
     }
+
+    @Step("Открыть вкладку истории поиска")
+    public HistoryScreen openHistory() {
+        navTab.openHistory();
+        return new HistoryScreen();
+    }
+
 }
