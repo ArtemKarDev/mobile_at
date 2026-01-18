@@ -36,11 +36,12 @@ public class TestBase {
 
     @AfterEach
     void addAttachments() {
-        String sessionId = Selenide.sessionId().toString();
-        Attach.pageSource();
-
+//        String sessionId = Selenide.sessionId().toString();
+//        Attach.pageSource();
+//        try { Attach.screenshotAs("Last screenshot"); } catch (Exception ignored) {}
+//        try { Attach.pageSource(); } catch (Exception ignored) {}
         closeWebDriver();
 
-        Attach.addVideo(sessionId);
+//        Attach.addVideo(sessionId);
     }
 }

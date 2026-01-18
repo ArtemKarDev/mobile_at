@@ -30,6 +30,7 @@ public class EmulationDriver implements WebDriverProvider {
                 .setAppPackage(config.appPackage())
                 .setAppActivity(config.appActivity())
                 .setNoReset(false)
+                .setNoReset(config.appiumNoReset())
                 .setAppWaitActivity("*");
 
         try {

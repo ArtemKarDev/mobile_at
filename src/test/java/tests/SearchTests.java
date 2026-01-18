@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import screens.ArticleScreen;
 import screens.SearchScreen;
 
+import static com.codeborne.selenide.Selenide.back;
+
 public class SearchTests extends TestBase {
 
     SearchScreen searchScreen;
@@ -13,6 +15,7 @@ public class SearchTests extends TestBase {
 
     @Test
     @Tag("SearchTests")
+    @Description("Проверка поисковой строки и вывода релевантного значения в поиске")
     void successfulSearchTest(){
         String searchTerm = "Appium";
         searchScreen = new SearchScreen();
@@ -24,7 +27,7 @@ public class SearchTests extends TestBase {
 
     @Test
     @Tag("SearchTests")
-    @Description("Проверка поисковой строки и вывода релевантного значения в поиске")
+    @Description("Проверка открытия найденой статьи")
     void successfulOpenArticleTest(){
         String searchTerm = "Appium";
         searchScreen = new SearchScreen();

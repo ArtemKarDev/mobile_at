@@ -43,6 +43,9 @@ public interface TestConfig extends Config {
         @Key("appiumApp")
         String appiumApp();
 
+        @Key("appiumNoReset")
+        Boolean appiumNoReset();
+
         @Key("platformVersion")
         @DefaultValue("12.0")
         String platformVersion();

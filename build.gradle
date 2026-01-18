@@ -69,9 +69,15 @@ tasks.withType(Test) {
     }
 }
 
-tasks.register('mobile_test', Test) {
+tasks.register('search_test', Test) {
     useJUnitPlatform {
         includeTags("SearchTests")
+    }
+}
+
+tasks.register('onboarding_test', Test) {
+    useJUnitPlatform {
+        includeTags("onboarding")
     }
 }
 

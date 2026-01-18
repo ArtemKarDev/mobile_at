@@ -12,7 +12,7 @@ public class Browserstack {
         String user = System.getProperty("browserstack.user");
         String key = System.getProperty("browserstack.key");
         if (user == null || key == null) {
-            System.err.println("Error: JVM properties 'browserstack.user' and 'browserstack.key' are not set");
+            System.err.println("Error: JVM properties 'browserstack.user' and 'browserstack.key' are not set!");
             return null;
         }
 

@@ -29,6 +29,7 @@ public class SearchScreen {
 
     @Step("Ввести запрос: {term}")
     public SearchScreen typeSearch(String term) {
+        searchInput.click();
         searchInput.sendKeys(term);
         return this;
     }

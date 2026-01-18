@@ -3,18 +3,14 @@
 ### ▶ 1. Эмулятор (локально, Wikipedia, Medium device)
 
 ```bash
-./gradlew test -DdeviceHost=emulation
+./gradlew onboarding_test -DdeviceHost=emulation
+
 ```
-если хотим изменить параметры запуска
+для изменения параметра запуска
 
 ```bash
 ./gradlew clean test \
-  -Ddevice.name=Nexus_5X \
+  "-DdeviceName=Medium Phone API 36.1" \
   -Dplatform.name=Android \
   -Dapp.package=org.wikipedia
-```
-
-### ▶ 1. Реальное устройство (USB, PROD Wikipedia)
-```bash
-./gradlew test -DdeviceHost=real
 ```
