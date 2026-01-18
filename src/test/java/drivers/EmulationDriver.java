@@ -26,7 +26,7 @@ public class EmulationDriver implements WebDriverProvider {
                 .setPlatformName(config.platformName())
                 .setAutomationName("UiAutomator2")
                 .setDeviceName(config.deviceName())
-                .setAvd(config.deviceName())
+                .setAvd(config.avd())
                 .setAppPackage(config.appPackage())
                 .setAppActivity(config.appActivity())
                 .setNoReset(false)

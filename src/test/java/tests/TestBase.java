@@ -19,7 +19,7 @@ public class TestBase {
 
     @BeforeAll
     static  void setupDriver() {
-        Configuration.browser = DriverProvider.getDriver().getClass().getName();
+        Configuration.browser = DriverProvider.getDriver();
         Configuration.browserSize = null;
 //        Configuration.timeout = 30000;
 //

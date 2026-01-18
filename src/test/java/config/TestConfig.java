@@ -37,6 +37,12 @@ public interface TestConfig extends Config {
         @DefaultValue("Samsung Galaxy S22 Ultra")
         String deviceName();
 
+        @Key("avd")
+        String avd();
+
+        @Key("appiumApp")
+        String appiumApp();
+
         @Key("platformVersion")
         @DefaultValue("12.0")
         String platformVersion();

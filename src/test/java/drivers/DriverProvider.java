@@ -3,14 +3,14 @@ package drivers;
 import com.codeborne.selenide.WebDriverProvider;
 
 public class DriverProvider {
-        public static WebDriverProvider getDriver() {
+        public static String getDriver() {
 
             String deviceHost =
                     System.getProperty("deviceHost", "emulation");
 
             return switch (deviceHost) {
-                case "browserstack" -> new BrowserstackDriver();
-                case "emulation" -> new EmulationDriver();
+                case "browserstack" -> BrowserstackDriver.class.getName();
+                case "emulation" -> EmulationDriver.class.getName();
                 default -> throw new IllegalArgumentException(
                         "Unknown deviceHost: " + deviceHost);
             };
