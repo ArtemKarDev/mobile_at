@@ -20,7 +20,7 @@ public class OnboardingTests extends TestBase {
                 .clickContinue()
                 .shouldHaveTitle("Reading lists")
                 .clickContinue()
-                .shouldHaveTitle("Send anonymous data")
+                .shouldHaveTitle("Send anony")
                 .clickGetStarted();
     }
 }

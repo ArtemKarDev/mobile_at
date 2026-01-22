@@ -6,8 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import components.NavTab;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 import static io.appium.java_client.AppiumBy.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -16,10 +15,11 @@ public class SearchScreen {
     NavTab navTab = new NavTab();
     private final SelenideElement
             searchBanner = $(accessibilityId("Search Wikipedia")),
-            searchInput = $(id("org.wikipedia.alpha:id/search_src_text")),
-            searchResultFirstItem = $(id("org.wikipedia.alpha:id/page_list_item_title"));
+            searchInput = $(id("org.wikipedia:id/search_src_text")),
+            goBackButton = $x("//android.widget.ImageButton"),
+            searchResultFirstItem = $(id("org.wikipedia:id/page_list_item_title"));
 
-        private final ElementsCollection searchResultItems = $$(id("org.wikipedia.alpha:id/page_list_item_title"));
+        private final ElementsCollection searchResultItems = $$(id("org.wikipedia:id/page_list_item_title"));
 
     @Step("Открыть поиск")
     public SearchScreen openSearch() {
@@ -33,7 +33,11 @@ public class SearchScreen {
         searchInput.sendKeys(term);
         return this;
     }
-
+    @Step("Кликнуть нопку назад")
+    public SearchScreen clickGoBack() {
+        goBackButton.click();
+        return this;
+    }
     @Step("Кликнуть по первому результату")
     public ArticleScreen clickFirstResult() {
         searchResultFirstItem.click();
@@ -59,7 +63,7 @@ public class SearchScreen {
 
     @Step("Открыть вкладку истории поиска")
     public HistoryScreen openHistory() {
-        navTab.openHistory();
+        navTab.openHistoryTab();
         return new HistoryScreen();
     }
 

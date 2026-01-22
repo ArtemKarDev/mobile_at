@@ -2,26 +2,30 @@ package components;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import screens.ArticleScreen;
 import screens.HistoryScreen;
+import screens.SearchScreen;
 
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class NavTab {
 
     private final SelenideElement
             exploreTab = $x("//android.widget.FrameLayout[@content-desc=\"Explore\"]"),
-            myListsTab = $x("//android.widget.FrameLayout[@content-desc=\"My lists\"]"),
-            historyTab = $x("//android.widget.FrameLayout[@content-desc=\"History\"]"),
-            nearbyTab = $x("//android.widget.FrameLayout[@content-desc=\"Nearby\"]");
+            historyTab = $x("//android.widget.FrameLayout[@content-desc=\"History\"]");
 
 
+    @Step("Открыть вкладку Исследовать")
+    public SearchScreen openExploreTab(){
+        exploreTab.click();
+        return new SearchScreen();
+    }
     @Step("Открыть историю")
-    public HistoryScreen openHistory(){
+    public HistoryScreen openHistoryTab(){
         historyTab.click();
         return new HistoryScreen();
     }
+
+
+
 
 }

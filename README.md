@@ -4,6 +4,7 @@
 
 ```bash
 ./gradlew onboarding_test -DdeviceHost=emulation
+./gradlew history_test -DdeviceHost=emulation
 
 ```
 для изменения параметра запуска

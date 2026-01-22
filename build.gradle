@@ -81,8 +81,10 @@ tasks.register('onboarding_test', Test) {
     }
 }
 
-task android(type: Test) {
+tasks.register('history_test', Test) {
     useJUnitPlatform {
-        includeTags 'android'
+        includeTags("HistoryTests")
     }
 }
+
+
